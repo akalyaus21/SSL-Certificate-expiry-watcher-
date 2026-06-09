@@ -1,0 +1,78 @@
+/* Custom Styles for SSL Certificate Expiry Watcher */
+
+body {
+    background-color: #030712;
+    background-image: 
+        radial-gradient(at 10% 20%, rgba(59, 130, 246, 0.04) 0px, transparent 50%),
+        radial-gradient(at 90% 80%, rgba(16, 185, 129, 0.02) 0px, transparent 50%);
+}
+
+/* Custom Glassmorphism UI panel */
+.bg-cyber-card {
+    background: rgba(10, 15, 30, 0.7);
+    backdrop-filter: blur(12px) saturate(140%);
+    -webkit-backdrop-filter: blur(12px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+/* Styled Table Scrollbar */
+.overflow-x-auto::-webkit-scrollbar {
+    height: 6px;
+    width: 6px;
+}
+
+.overflow-x-auto::-webkit-scrollbar-track {
+    background: rgba(15, 23, 42, 0.3);
+}
+
+.overflow-x-auto::-webkit-scrollbar-thumb {
+    background: rgba(59, 130, 246, 0.3);
+    border-radius: 4px;
+}
+
+.overflow-x-auto::-webkit-scrollbar-thumb:hover {
+    background: rgba(59, 130, 246, 0.5);
+}
+
+/* Animations for scanners */
+@keyframes scanning {
+    0% {
+        transform: translateY(-10%;);
+        opacity: 0.2;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(110%);
+        opacity: 0.2;
+    }
+}
+
+.animate-scan-line {
+    position: relative;
+}
+
+.animate-scan-line::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+    box-shadow: 0 0 8px #3b82f6;
+    animation: scanning 2s infinite linear;
+}
+
+/* Glow classes */
+.glow-red {
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.15);
+}
+
+.glow-yellow {
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.15);
+}
+
+.glow-green {
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.15);
+}

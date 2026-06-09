@@ -1,0 +1,6 @@
+{
+  "name": "SSL Cert Watcher & AI Agent",
+  "description": "Scalable SSL Certificate Expiry Watcher. Uses socket scans to track remaining TLS days, categorizes threats, and dispatches an automated AI Remediation Agent to file incident tickets.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
