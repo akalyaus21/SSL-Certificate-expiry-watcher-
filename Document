@@ -1,0 +1,271 @@
+SSL Certificate Watcher & AI Agent
+
+ Abstract
+
+SSL Certificate Watcher & AI Agent is a proactive monitoring system designed to identify SSL certificates nearing expiration and help organizations avoid service disruptions. The application automatically scans domains, retrieves SSL certificate information, calculates remaining validity periods, classifies risk levels, and generates AI-powered remediation recommendations. The solution also provides dashboard analytics, historical tracking, and report export capabilities.
+
+1. Introduction
+
+SSL certificates play a critical role in securing communication between users and web applications. Expired certificates can result in browser warnings, service interruptions, and loss of customer trust.
+
+Manual monitoring of SSL certificates is time-consuming and prone to human error. This project automates certificate monitoring and provides intelligent recommendations through an AI-powered agent.
+
+
+ 2. Problem Statement
+
+Organizations often manage multiple websites and services, each protected by SSL certificates with different expiration dates.
+
+Challenges include:
+
+* Lack of centralized certificate monitoring.
+* Manual tracking of expiry dates.
+* Risk of unexpected certificate expiration.
+* Service disruptions and security warnings.
+* Increased operational effort.
+
+An automated solution is required to continuously monitor SSL certificates and provide actionable insights.
+
+
+ 3. Objectives
+
+* Automatically scan SSL certificates of domains.
+* Retrieve certificate issuer and validity details.
+* Calculate remaining days before expiration.
+* Classify certificates based on urgency.
+* Generate AI-powered renewal recommendations.
+* Store scan history for future reference.
+* Export reports for operational use.
+* Provide a user-friendly dashboard for monitoring.
+
+
+ 4. Technology Stack
+
+ Frontend
+
+* React
+* TypeScript
+* HTML5
+* CSS3
+
+ Backend
+
+* Python
+* FastAPI
+* Socket Programming
+* SSL Libraries
+
+ Database
+
+* SQLite
+
+ Artificial Intelligence
+
+* Groq API
+* Llama 3 Model
+
+ Reporting
+
+* CSV Export
+* Markdown Export
+
+
+ 5. System Architecture
+
+```text
+User Interface (React Dashboard)
+            |
+            v
+      FastAPI Backend
+            |
+    ------------------
+    |                |
+SSL Scanner     AI Agent
+    |                |
+    ------------------
+            |
+         SQLite
+            |
+       Export Engine
+```
+
+6. Functional Modules
+
+ 6.1 Domain Management Module
+
+Responsibilities:
+
+* Add new domains.
+* Manage monitored domains.
+* Validate domain inputs.
+* Initiate certificate scans.
+
+ Inputs
+
+* Domain names
+
+ Outputs
+
+* Updated monitoring list
+
+---
+
+ 6.2 SSL Certificate Scanner
+
+This module establishes a secure connection with target domains and retrieves certificate metadata.
+
+Extracted Information:
+
+* Domain Name
+* Certificate Issuer
+* Valid From Date
+* Expiry Date
+* Serial Number
+
+ Process
+
+1. Connect to domain on port 443.
+2. Perform SSL handshake.
+3. Retrieve certificate.
+4. Extract metadata.
+5. Calculate expiry details.
+
+
+
+ 6.3 Risk Classification Module
+
+The system classifies certificates based on the number of days remaining.
+
+| Days Remaining | Status   |
+| -------------- | -------- |
+| ≤ 7 Days       | Critical |
+| ≤ 30 Days      | Warning  |
+| > 30 Days      | Healthy  |
+
+This classification helps administrators prioritize certificate renewals.
+
+ 6.4 AI Agent Module
+
+The AI Agent analyzes certificate status and generates remediation recommendations.
+
+Generated Information:
+
+* Ticket Title
+* Priority Level
+* Description
+* Business Impact
+* Recommended Action
+
+Benefits:
+
+* Reduces manual analysis.
+* Provides actionable guidance.
+* Improves operational efficiency.
+
+
+ 6.5 Database Module
+
+SQLite is used for storing:
+
+* Domain Information
+* Scan Results
+* Risk Status
+* AI Recommendations
+* Historical Records
+
+ Database Benefits
+
+* Lightweight
+* Fast
+* Easy deployment
+* Persistent storage
+
+ 6.6 Dashboard Analytics
+
+The dashboard provides:
+
+* Total Domains Monitored
+* Critical Certificates
+* Warning Certificates
+* Healthy Certificates
+
+Visualizations include:
+
+* Custom Doughnut Visualization
+* Custom Bar Visualization
+
+These components provide a quick overview of certificate health across all monitored domains.
+
+
+
+ 6.7 Reporting Module
+
+The system supports:
+
+ CSV Export
+
+Used for:
+
+* Data analysis
+* Operational reporting
+* Spreadsheet integration
+
+ Markdown Export
+
+Used for:
+
+* Technical documentation
+* Sharing scan results
+* Team collaboration
+
+
+ 7. Workflow
+
+1. User enters a domain.
+2. SSL Scanner retrieves certificate details.
+3. Expiry information is extracted.
+4. Remaining validity is calculated.
+5. Risk level is determined.
+6. AI Agent generates recommendations.
+7. Results are stored in SQLite.
+8. Dashboard updates analytics.
+9. Reports can be exported.
+
+
+
+ 8. Key Features
+
+* SSL Certificate Monitoring
+* Expiry Detection
+* Risk Classification
+* AI-Powered Recommendations
+* Dashboard Analytics
+* Historical Tracking
+* CSV Export
+* Markdown Export
+* SQLite Storage
+
+
+ 9. Advantages
+
+* Prevents unexpected certificate expiration.
+* Improves operational visibility.
+* Reduces manual effort.
+* Supports proactive maintenance.
+* Enhances service reliability.
+* Provides intelligent recommendations.
+
+
+ 10. Future Enhancements
+
+* Email Notifications
+* Slack Integration
+* Microsoft Teams Alerts
+* Automatic Certificate Renewal
+* Multi-user Authentication
+* Cloud Deployment
+* Real-Time Monitoring
+
+
+ 11. Conclusion
+
+SSL Certificate Watcher & AI Agent provides an efficient and intelligent solution for monitoring SSL certificates and preventing service disruptions caused by certificate expiration. By combining automated scanning, risk assessment, AI-generated recommendations, analytics, and reporting, the system enables organizations to manage certificate lifecycles proactively and improve operational reliability.
